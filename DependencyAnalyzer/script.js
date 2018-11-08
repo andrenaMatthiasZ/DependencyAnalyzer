@@ -1,8 +1,8 @@
 ﻿
 
-const createEmptyTable = function(n) {
+const createEmptyTable = function(table,n) {
 
-    const table = document.getElementById("dependencyTable");
+    
 
 
     const rowIndices = [...Array(n + 1)].map((_, index) => index);
@@ -36,4 +36,33 @@ const getValue = function(rowIndex, columnIndex) {
     return 0;
 };
 
-createEmptyTable(10);
+const fillTableRandomly = function(table) {
+    table.rows.map(row => row.cells.toArray().slice(1)).slice(1).flat().map(cell => assignRandomValue(cell));
+};
+
+Object.defineProperty(HTMLCollection.prototype, "map", {
+    value: function(action) {
+        const indices = [...Array(this.length)].map((_, index) => index);
+        return indices.map(index => action(this.item(index)));
+    },
+    writable: true,
+    configurable: true
+});
+
+Object.defineProperty(HTMLCollection.prototype, "toArray", {
+    value: function () {
+        const indices = [...Array(this.length)].map((_, index) => index);
+        return indices.map(index => this.item(index));
+    },
+    writable: true,
+    configurable: true
+});
+
+const assignRandomValue = function(cell) {
+    cell.innerHTML = Math.random()>0.5?1:0;
+};
+
+const table = document.getElementById("dependencyTable");
+createEmptyTable(table,10);
+
+fillTableRandomly(table);
