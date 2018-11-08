@@ -1,28 +1,39 @@
 ﻿
 
-const createTable = function(n) {
+const createEmptyTable = function(n) {
 
     const table = document.getElementById("dependencyTable");
 
 
-    const rowIndices = [...Array(n)].map((_, index) => index);
-    rowIndices.forEach(i => createRow( table,i, n) );
+    const rowIndices = [...Array(n + 1)].map((_, index) => index);
+    const columnIndices = rowIndices;
+    rowIndices.forEach(rowIndex => createRow( table,rowIndex, columnIndices) );
 
 };
 
-const createRow = function(table,i, n) {
+const createRow = function(table,rowIndex, columnIndices) {
     const row = table.insertRow();
-
-    const firstCell = row.insertCell();
-    const columnIndices = [...Array(n)].map((_,index)=>index);
-    columnIndices.forEach(j => createCell(row,i,j));
-    firstCell.innerHTML = "";
+    columnIndices.forEach(columnIndex => createCell(row,rowIndex,columnIndex));
 };
 
-const createCell = function (row, i, columnIndex) {
-
+const createCell = function (row, rowIndex, columnIndex) {
+    
     const cell = row.insertCell();
-    cell.innerHTML = columnIndex + i;
+    cell.innerHTML = getValue(rowIndex,columnIndex);
 };
 
-createTable(2);
+const getValue = function(rowIndex, columnIndex) {
+    if (rowIndex === 0 && columnIndex === 0) {
+        return " ";
+    }
+    if (rowIndex === 0) {
+        return columnIndex;
+    }
+    if (columnIndex === 0) {
+        return rowIndex;
+    }
+
+    return 0;
+};
+
+createEmptyTable(10);
