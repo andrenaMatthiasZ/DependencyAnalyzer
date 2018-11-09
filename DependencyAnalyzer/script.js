@@ -1,4 +1,4 @@
-﻿
+﻿import extensions from "./HTMLCollectionExtensions";
 
 const createEmptyTable = function(table,n) {
 
@@ -37,26 +37,11 @@ const getValue = function(rowIndex, columnIndex) {
 };
 
 const fillTableRandomly = function(table) {
-    table.rows.map(row => row.cells.toArray().slice(1)).slice(1).flat().map(cell => assignRandomValue(cell));
+    const innerCells = table.rows.map(row => row.cells.toArray().slice(1)).slice(1).flat();
+    innerCells.map(cell => assignRandomValue(cell));
 };
 
-Object.defineProperty(HTMLCollection.prototype, "map", {
-    value: function(action) {
-        const indices = [...Array(this.length)].map((_, index) => index);
-        return indices.map(index => action(this.item(index)));
-    },
-    writable: true,
-    configurable: true
-});
 
-Object.defineProperty(HTMLCollection.prototype, "toArray", {
-    value: function () {
-        const indices = [...Array(this.length)].map((_, index) => index);
-        return indices.map(index => this.item(index));
-    },
-    writable: true,
-    configurable: true
-});
 
 const assignRandomValue = function(cell) {
     cell.innerHTML = Math.random()>0.5?1:0;
