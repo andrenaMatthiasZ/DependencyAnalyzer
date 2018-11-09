@@ -1,4 +1,6 @@
-﻿export function extensions() {
+﻿
+
+function extensions() {
     Object.defineProperty(HTMLCollection.prototype, "map", {
         value: function (action) {
             const indices = [...Array(this.length)].map((_, index) => index);
@@ -17,3 +19,7 @@
         configurable: true
     });
 }
+
+
+export default extensions;
+export { extensions };
