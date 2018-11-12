@@ -1,10 +1,9 @@
 ﻿import extensions from './HTMLCollectionExtensions.js';
 
-export default dummy;
+export default createEmptyTable;
 export { createEmptyTable, fillTableRandomly };
 
-
-function dummy() {}
+extensions();
 
 function createEmptyTable(table, n) {
     const rowIndices = [...Array(n + 1)].map((_, index) => index);
