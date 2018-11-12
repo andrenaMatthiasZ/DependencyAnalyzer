@@ -20,6 +20,6 @@ function extensions() {
     });
 }
 
+extensions();
 
 export default extensions;
-export { extensions };
