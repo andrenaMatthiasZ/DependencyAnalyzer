@@ -67,17 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HTMLCollectionExtensions.js" />
+    <Content Include="js\dummyForTest.js" />
+    <Content Include="js\HTMLCollectionExtensions.js" />
     <Content Include="index.html" />
-    <Content Include="script.js" />
-    <Content Include="table.js" />
+    <Content Include="js\script.js" />
+    <Content Include="js\table.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
