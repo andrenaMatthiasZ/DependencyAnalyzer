@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {DependencyService} from '../dependency.service'
+
 @Component({
   selector: 'app-dependency-table',
   templateUrl: './dependency-table.component.html',
@@ -7,14 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DependencyTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dependencyService: DependencyService) { }
 
   public indices = [1,2,3]
 
-  public rows = [[1,2,3],[4,5,6],[7,8,8]]
+  public rows
 
 
   ngOnInit() {
+    this.rows = this.dependencyService.getDependencies()
   }
 
 }

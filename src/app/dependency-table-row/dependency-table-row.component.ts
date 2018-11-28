@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+
 @Component({
   selector: '[app-dependency-table-row]',
   templateUrl: './dependency-table-row.component.html',
@@ -11,7 +12,7 @@ export class DependencyTableRowComponent implements OnInit {
 
   @Input() index: number
 
-  @Input() grow : any[]
+  @Input() dependencies : any[]
 
   ngOnInit() {
   }

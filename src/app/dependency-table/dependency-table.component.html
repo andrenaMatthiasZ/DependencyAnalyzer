@@ -6,6 +6,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr app-dependency-table-row *ngFor="let index of indices" [grow]="rows[index-1]" [index]="index"></tr>
+    <tr app-dependency-table-row *ngFor="let index of indices" [dependencies]="rows[index-1]" [index]="index"></tr>
   </tbody>
 </table>
