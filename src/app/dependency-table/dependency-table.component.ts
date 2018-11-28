@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import {DependencyService} from '../dependency.service'
+import {Subscription} from 'rxjs'
 
 @Component({
   selector: 'app-dependency-table',
@@ -15,14 +16,22 @@ export class DependencyTableComponent implements OnInit {
 
   public rows: number[][]
 
-
   ngOnInit() {
-    this.getDependencies();
+    this.subscribeToDependencyService();
   }
 
+  private subscribeToDependencyService() {
+    this.subscription = this.dependencyService.getDependencies().subscribe(dependencies=> this.setDependencies(dependencies));
+  }
 
-  private getDependencies() {
-    this.rows = this.dependencyService.getDependencies();
+  private setDependencies(dependencies: number[][]){
+    this.rows = dependencies
     this.indices = Array.from(new Array(this.rows.length), (_val, index) => index + 1);
+  }
+
+  private subscription: Subscription;
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe()
   }
 }

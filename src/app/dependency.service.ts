@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: "root"
@@ -6,7 +7,7 @@ import { Injectable } from "@angular/core";
 export class DependencyService {
   constructor() {}
 
-  getDependencies(): number[][] {
-    return [[1, 2, 3], [4, 5, 6], [7, 8, 8]];
+  getDependencies(): Observable<number[][]> {
+    return of([[1, 2, 3], [4, 5, 6], [7, 8, 8]]);
   }
 }
