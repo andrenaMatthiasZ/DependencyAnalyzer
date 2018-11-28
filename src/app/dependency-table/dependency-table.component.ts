@@ -9,7 +9,10 @@ export class DependencyTableComponent implements OnInit {
 
   constructor() { }
 
-  public indices = [1,2,3,4,5]
+  public indices = [1,2,3]
+
+  public rows = [[1,2,3],[4,5,6],[7,8,8]]
+
 
   ngOnInit() {
   }

@@ -10,7 +10,7 @@ import { DependencyTableRowComponent } from './dependency-table-row/dependency-t
   declarations: [
     AppComponent,
     DependencyTableComponent,
-    DependencyTableRowComponent
+    DependencyTableRowComponent,
   ],
   imports: [
     BrowserModule,

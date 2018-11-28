@@ -1,7 +1,11 @@
 <table>
-  <tr>
-    <th></th>
-    <th *ngFor="let index of indices">{{ index }}</th>
-  </tr>
-  <tr app-dependency-table-row *ngFor = "let row of rows"></tr>
+  <thead>
+    <tr>
+      <th></th>
+      <th *ngFor="let index of indices">{{ index }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr app-dependency-table-row *ngFor="let index of indices" [grow]="rows[index-1]" [index]="index"></tr>
+  </tbody>
 </table>
