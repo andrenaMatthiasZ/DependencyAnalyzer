@@ -11,9 +11,9 @@ export class DependencyTableComponent implements OnInit {
 
   constructor(private dependencyService: DependencyService) { }
 
-  public indices
+  public indices: number[]
 
-  public rows
+  public rows: number[][]
 
 
   ngOnInit() {

@@ -12,7 +12,7 @@ export class DependencyTableRowComponent implements OnInit {
 
   @Input() index: number
 
-  @Input() dependencies : any[]
+  @Input() dependencies : number[]
 
   ngOnInit() {
   }
