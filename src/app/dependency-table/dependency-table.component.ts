@@ -11,13 +11,18 @@ export class DependencyTableComponent implements OnInit {
 
   constructor(private dependencyService: DependencyService) { }
 
-  public indices = [1,2,3]
+  public indices
 
   public rows
 
 
   ngOnInit() {
-    this.rows = this.dependencyService.getDependencies()
+    this.getDependencies();
   }
 
+
+  private getDependencies() {
+    this.rows = this.dependencyService.getDependencies();
+    this.indices = Array.from(new Array(this.rows.length), (_val, index) => index + 1);
+  }
 }
