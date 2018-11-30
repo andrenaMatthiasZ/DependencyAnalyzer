@@ -1,11 +1,11 @@
 <table>
   <thead>
-    <tr>
-      <th></th>
-      <th *ngFor="let index of indices">{{ index }}</th>
-    </tr>
   </thead>
   <tbody>
+     <tr>
+      <td></td>
+      <td class="dependency-index" *ngFor="let index of indices">{{ index }}</td>
+    </tr>
     <tr app-dependency-table-row *ngFor="let index of indices" [dependencies]="rows[index-1]" [index]="index"></tr>
   </tbody>
 </table>
